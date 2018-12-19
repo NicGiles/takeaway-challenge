@@ -15,4 +15,12 @@ subject(:takeaway) { described_class.new(menu, order) }
       expect { takeaway.show_menu }.to output("Beef Onglet: £6.5\n").to_stdout
       end
     end
+
+    describe '#make_order' do
+      it 'allow customers to order food' do
+        expect(order).to receive(:order).with('Tortilla', 2)
+        takeaway.make_order('Tortilla', 2)
+      end
+    end
+
 end

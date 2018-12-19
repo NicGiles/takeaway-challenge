@@ -9,12 +9,14 @@ attr_reader :menu, :order
     @order = order
 end
 
-def show_menu
-  menu.options.each { |dish| puts "#{dish[:dish]}: £#{dish[:price]}"}
-end
+  def show_menu
+    menu.options.each { |dish| puts "#{dish[:dish]}: £#{dish[:price]}"}
+  end
 
-def make_order(dish, quantity)
-  order.order(dish, quantity)
-end
+  def make_order(dish, quantity)
+    order.order(dish, quantity)
+  end
+
+
 
 end
