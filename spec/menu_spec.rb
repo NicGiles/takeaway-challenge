@@ -9,14 +9,17 @@ describe Menu do
       food_menu.options
     end
 
-  it 'contains a range of options' do
-    option_a = food_menu.options.first
-    expect(option_a.dish).to eq("Beef Onglet")
+    it 'contains a range of options' do
+      expect(food_menu.options).to eq [ {dish: "Golden Curry" , price: 7},
+      {dish: "Beef Onglet" , price: 10}]
     end
+  end
 
-    it 'contains prices for each option' do
-      option_a = food_menu.options.first
-      expect(option_a.price).to eq(6.5)
-      end
+  describe "#add_dishes" do
+    it 'allows owners to add dishes to their menu' do
+      food_menu.add_dishes("Pimpin' Dave's very expensive Kickin' Lickin' Chicken", 50)
+      expect(food_menu.options).to eq [ {dish: "Golden Curry" , price: 7},
+      {dish: "Beef Onglet" , price: 10}, {dish: "Pimpin' Dave's very expensive Kickin' Lickin' Chicken" , price: 50}]
     end
+  end
 end
