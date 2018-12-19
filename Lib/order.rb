@@ -8,19 +8,20 @@ class Order
   end
 
   def order(dish, quantity)
-  @basket << { dish: dish, quantity: quantity }
-  "#{quantity} x #{dish} added"
-end
+    @basket << { dish: dish, quantity: quantity }
+    "#{quantity} x #{dish} added"
+  end
 
-def order_total
+  def order_total
     return 0 if basket.empty?
-    basket.map { |selection| choice_total(selection) }.reduce(:+)
+    basket.each { |selection| choice_total(selection) }
   end
 
 
   private
 
-def choice_total(choice)
-choice[:quantity]*choice[:dish].price
-end
+  def choice_total(choice)
+    puts "#{choice[:quantity]} x #{choice[:dish]}"
+
+  end
 end
