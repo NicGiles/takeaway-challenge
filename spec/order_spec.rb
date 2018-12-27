@@ -14,6 +14,14 @@ subject(:customer_order)  { described_class.new }
     end
   end
 
+  describe "#unit_total" do
+    it 'calculates price for quantity of each dish ordered' do
+      customer_order.order('Onglet', 3)
+      expect { customer_order.unit_total }.to output("£21").to_stdout
+
+    end
+    end
+
   describe "#order_total" do
     it 'collates dishes customer has ordered' do
       customer_order.order('Onglet', 3)
